@@ -1,7 +1,8 @@
-package com.discounts.nearby.service
+package com.discounts.nearby.service.mail
 
 import com.discounts.nearby.config.MailServiceTestConfig
 import com.discounts.nearby.config.extension.SmtpMailServerExtension
+import com.discounts.nearby.service.MailService
 import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.extension.ExtendWith
@@ -26,7 +27,7 @@ class MailServiceTest {
     private lateinit var mailService: MailService
 
     @Test
-    fun sendMail(mailServer: SmtpMailServerExtension.SmtpMailServer) {
+    fun `test send mail`(mailServer: SmtpMailServerExtension.SmtpMailServer) {
         mailService.sendMail(emailTo, subject, content)
 
         val receivedMessages = mailServer.receivedMessages()
